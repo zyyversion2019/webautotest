@@ -2,8 +2,10 @@
 # time 2024/12/15 22:39
 from selenium.webdriver.common.by import By
 
+from base.base_action import BaseAction
 
-class LoginPage:
+
+class LoginPage(BaseAction):
 
     login_link_btn=By.LINK_TEXT, "登录"
     username_input=By.ID, "username"
@@ -11,13 +13,6 @@ class LoginPage:
     verify_code_input=By.ID, "verify_code"
     login_btn=By.CSS_SELECTOR, ".login_bnt > a"
     msg= By.CSS_SELECTOR, ".layui-layer-padding"
-
-
-    def __init__(self,driver):
-        self.driver=driver
-
-    def find_ele(self,fixture):
-        return self.driver.find_element(*fixture)
 
     def click_login_link(self):
         return self.find_ele(self.login_link_btn).click()
