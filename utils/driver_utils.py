@@ -20,5 +20,5 @@ class DriverUtils:
     def close_driver(cls):
         if cls.__driver is not None:
             cls.__driver.quit()
-            cls.__driver.close()
+            cls.__driver=None
 
